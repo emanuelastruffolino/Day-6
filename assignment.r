@@ -18,9 +18,6 @@ getwd()
     #Retain only data for sequences with at most 5 missing values.
 
 source("extractSeqFromW.R")
-#creo una sotto cartella per le wave e dopo per il master file così
-#poi li inserisco nel comando sotto per dare le coordinate di dove prendere
-#il file
 wavedir <-"data/" 
 datadir<-"data/"
 sla <- extractSeqFromW(wavedir,datadir,  pvarseq="P$$A06",
@@ -30,8 +27,6 @@ sla <- extractSeqFromW(wavedir,datadir,  pvarseq="P$$A06",
    #Check that the mean sequence length is less than the maximal sequence length and that 
    #the standard deviation of the sequence length is non zero.
 var <- getColumnIndex(sla, "P$$A06")
-#getColumnIndec e extract...sono funzioni di extractSeqFromW. che è costruito
-#apposta per il corso
 mycol<-brewer.pal(11,"RdBu") ##column gradient con 11 colori da 0 a 10
 
 myseq <- seqdef(sla[, var], cpal=mycol, cname=1999:2009)
